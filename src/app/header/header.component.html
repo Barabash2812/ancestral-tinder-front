@@ -1,0 +1,14 @@
+<header class="header-6">
+  <div class="branding">
+    <span class="title"><a class="text" routerLink="/cards">Ancestral Tinder</a></span>
+  </div>
+
+  <div class="auth-class">
+    <div *ngIf="authenticationService.isLoggedIn && principal" class="name-class">
+      <a class="text" routerLink="/profile/{{principal.profile.id}}">{{principal.username}}</a>
+    </div>
+    <button (click)="logout()" *ngIf="authenticationService.isLoggedIn" class="btn btn-outline npt-logout-btn"
+            type="button">Logout
+    </button>
+  </div>
+</header>

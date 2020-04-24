@@ -1,0 +1,32 @@
+<div [ngSwitch]="lovers == undefined || lovers == null || lovers.length == 0">
+  <div *ngSwitchCase="true" class="no-lovers-text">
+    You are too picky
+  </div>
+  <ng-container *ngSwitchCase="false">
+    <ng-container *ngIf="lovers">
+      <div class="profile-lovers">
+        <div *ngFor="let lover of lovers" class="card clickable">
+          <div class="card-block">
+            <a routerLink="/profile/{{lover.id}}">
+              <div class="card-title card-adv">
+                <h3>{{lover.name}}</h3>
+                <ng-container *ngIf="lover.match">
+                  <clr-icon shape="heart"></clr-icon>
+                </ng-container>
+              </div>
+              <p class="card-text">
+                {{lover.about}}
+              </p>
+            </a>
+          </div>
+          <div class="card-footer">
+            <button (click)="removeLover(lover)" class="btn btn-sm btn-link" type="button">Unlike</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+
+

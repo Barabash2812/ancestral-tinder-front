@@ -1,0 +1,20 @@
+.tinder-crads-overview-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards-content {
+  width: 280px;
+}
+
+.cards-not-started {
+  padding-top: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: xxx-large;
+}
+
+:host {
+  width: 100%;
+}

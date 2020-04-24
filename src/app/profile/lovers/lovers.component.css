@@ -1,0 +1,17 @@
+.profile-lovers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+  grid-gap: 15px;
+}
+
+.no-lovers-text {
+  padding-top: 110px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: xxx-large;
+}
+
+.card-adv {
+  display: flex;
+  justify-content: space-between;
+}

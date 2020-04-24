@@ -1,0 +1,12 @@
+.login-wrapper .login {
+  min-height: 92vh;
+}
+
+.family-login {
+  background-size: contain;
+  background-position-x: right;
+}
+
+:host {
+  width: 100%;
+}

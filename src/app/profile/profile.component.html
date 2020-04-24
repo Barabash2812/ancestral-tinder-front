@@ -1,0 +1,58 @@
+<div class="content-area">
+  <div class="profile-overview-page">
+    <div class="profile-content">
+      <div *ngIf="profile" class="card">
+        <div class="card-img">
+          <img src="./assets/{{profile.sex}}.svg" style="height: 420px">
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">{{profile.name}}</h4>
+          <p class="card-text">{{profile.about}}</p>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">{{profile.dateOfBirth}}</li>
+        </ul>
+        <div *ngIf="haveAccess" class="card-footer">
+          <a (click)="openModal()" class="btn btn-sm btn-link">Edit</a>
+        </div>
+      </div>
+    </div>
+    <div style="width: 50%; ">
+      <app-lovers #lovers *ngIf="haveAccess"></app-lovers>
+    </div>
+  </div>
+</div>
+
+
+<clr-modal [(clrModalOpen)]="modalOpened">
+  <h3 class="modal-title">Edit profile</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label>Name</label>
+        <input [(ngModel)]="profileDto.name" clrInput name="name" placeholder="Name"/>
+      </clr-input-container>
+      <clr-select-container>
+        <label>Sex</label>
+        <select [(ngModel)]="profileDto.sex" clrSelect name="type">
+          <option value="male">
+            Male
+          </option>
+          <option value="female">Female</option>
+        </select>
+      </clr-select-container>
+      <clr-date-container>
+        <label>Date of Birth</label>
+        <input [(ngModel)]="profileDto.dateOfBirth" clrDate name="date" type="date">
+      </clr-date-container>
+      <clr-input-container>
+        <label>About</label>
+        <input [(ngModel)]="profileDto.about" clrInput name="about" placeholder="About you"/>
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="modalOpened = false" class="btn btn-outline" type="button">Cancel</button>
+    <button (click)="modalOpened = false; updateProfile()" class="btn btn-primary" type="button">Ok</button>
+  </div>
+</clr-modal>

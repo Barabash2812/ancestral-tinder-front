@@ -1,0 +1,37 @@
+<div class="content-area">
+  <div class="tinder-crads-overview-page">
+    <div class="cards-content">
+      <div *ngIf="message" class="alert alert-success" role="alert"
+           style="position: absolute; width: inherit; z-index: 5">
+        <div class="alert-items">
+          <div class="alert-item static">
+            <div class="alert-icon-wrapper">
+              <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+            </div>
+            <span class="alert-text">{{this.message}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="currentProfile" class="card" style="margin-top: 3.2rem;">
+        <div class="card-img">
+          <img src="./assets/{{currentProfile.sex}}.svg" style="height: 420px">
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">{{currentProfile.name}}</h4>
+          <p class="card-text">{{currentProfile.about}}</p>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">{{currentProfile.dateOfBirth}}</li>
+        </ul>
+        <div class="card-footer">
+          <a (click)="unlike()" class="btn btn-sm btn-link">Unlike</a>
+          <a (click)="like()" class="btn btn-sm btn-link">Like</a>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="isNotStarted">
+      <div class="cards-not-started">Lets begin</div>
+    </ng-container>
+  </div>
+
+</div>
